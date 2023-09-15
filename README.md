@@ -1,7 +1,5 @@
 # Firejet API example
 
-# THIS WILL NOT WORK WITH DEVELOPER VM. SEE [DOCS FOR DETAILS AND FIX](https://www.firejet.io/docs/enterprise/api-documentation)
-
 ## Quickstart
 
 - Run `yarn` to install dependencies.
