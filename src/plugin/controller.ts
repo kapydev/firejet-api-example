@@ -1,26 +1,17 @@
+import { figmaToCode, initMidEnd, DEFAULT_CONFIG } from '@firejet/firejet-js';
+
+initMidEnd();
+
 figma.showUI(__html__);
 
-figma.ui.onmessage = (msg) => {
-  if (msg.type === 'create-rectangles') {
-    const nodes = [];
-
-    for (let i = 0; i < msg.count; i++) {
-      const rect = figma.createRectangle();
-      rect.x = i * 150;
-      rect.fills = [{ type: 'SOLID', color: { r: 1, g: 0.5, b: 0 } }];
-      figma.currentPage.appendChild(rect);
-      nodes.push(rect);
+figma.ui.onmessage = async (msg) => {
+  if (msg.type === 'convert') {
+    const selectedId = figma.currentPage.selection[0].id;
+    if (!selectedId) {
+      console.log('No frame selected!');
     }
-
-    figma.currentPage.selection = nodes;
-    figma.viewport.scrollAndZoomIntoView(nodes);
-
-    // This is how figma responds back to the ui
-    figma.ui.postMessage({
-      type: 'create-rectangles',
-      message: `Created ${msg.count} Rectangles`,
-    });
+    console.log('Converting...');
+    const folder = await figmaToCode(selectedId, DEFAULT_CONFIG);
+    console.log('Conversion Done!', { folder });
   }
-
-  figma.closePlugin();
 };

@@ -1,45 +1,20 @@
 import React from 'react';
-import logo from '../assets/logo.svg';
+import { initFrontEnd } from '@firejet/firejet-js';
 import '../styles/ui.css';
 
+initFrontEnd('y4A92arRSaCl49qKBzuM0qHh4kt4O6VH');
+
 function App() {
-  const textbox = React.useRef<HTMLInputElement>(undefined);
-
-  const countRef = React.useCallback((element: HTMLInputElement) => {
-    if (element) element.value = '5';
-    textbox.current = element;
-  }, []);
-
-  const onCreate = () => {
-    const count = parseInt(textbox.current.value, 10);
-    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
+  const convert = () => {
+    parent.postMessage({ pluginMessage: { type: 'convert' } }, '*');
   };
-
-  const onCancel = () => {
-    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
-  };
-
-  React.useEffect(() => {
-    // This is how we read messages sent from the plugin controller
-    window.onmessage = (event) => {
-      const { type, message } = event.data.pluginMessage;
-      if (type === 'create-rectangles') {
-        console.log(`Figma Says: ${message}`);
-      }
-    };
-  }, []);
 
   return (
     <div>
-      <img src={logo} />
-      <h2>Rectangle Creator</h2>
-      <p>
-        Count: <input ref={countRef} />
-      </p>
-      <button id="create" onClick={onCreate}>
-        Create
+      <h2>Run Conversion (View result in console)</h2>
+      <button id="create" onClick={convert}>
+        Convert
       </button>
-      <button onClick={onCancel}>Cancel</button>
     </div>
   );
 }
