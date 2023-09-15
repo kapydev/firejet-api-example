@@ -10,8 +10,8 @@ figma.ui.onmessage = async (msg) => {
     if (!selectedId) {
       console.log('No frame selected!');
     }
-    console.log('Converting...');
-    const folder = await figmaToCode(selectedId, DEFAULT_CONFIG);
-    console.log('Conversion Done!', { folder });
+    console.log('Converting');
+    const result = await figmaToCode(selectedId, DEFAULT_CONFIG);
+    console.log('Conversion Done!', { result });
   }
 };

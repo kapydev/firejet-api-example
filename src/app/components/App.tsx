@@ -5,16 +5,14 @@ import '../styles/ui.css';
 initFrontEnd('y4A92arRSaCl49qKBzuM0qHh4kt4O6VH');
 
 function App() {
-  const convert = () => {
+  const convert = async () => {
     parent.postMessage({ pluginMessage: { type: 'convert' } }, '*');
   };
 
   return (
     <div>
       <h2>Run Conversion (View result in console)</h2>
-      <button id="create" onClick={convert}>
-        Convert
-      </button>
+      <button onClick={convert}>Convert</button>
     </div>
   );
 }

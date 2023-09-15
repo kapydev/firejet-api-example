@@ -34,9 +34,9 @@
   "version" "1.57.1"
 
 "@firejet/firejet-js@*":
-  "integrity" "sha512-v2mGc6A2ptMOffVsAUMdcO8WqxVGNh/ZrfI6TXWty3jifF8ICOxyEX4OIFuqSjNKULCORX26ehFru91nBII6yg=="
-  "resolved" "https://registry.npmjs.org/@firejet/firejet-js/-/firejet-js-0.0.35.tgz"
-  "version" "0.0.35"
+  "integrity" "sha512-QOlZf+FIKYLWpZ2JWisPGs0aZ99vSLaBObyplJjZaQybjG2Qy12/7WHpQvwQqC3GAKqexQEjHNUWIoin0uuXXA=="
+  "resolved" "https://registry.npmjs.org/@firejet/firejet-js/-/firejet-js-0.0.38.tgz"
+  "version" "0.0.38"
   dependencies:
     "tslib" "^2.3.0"
 
